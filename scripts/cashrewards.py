@@ -299,7 +299,8 @@ if db_exists:
 						# ability to add new
 						sql_add = " INSERT OR IGNORE INTO domainlist (type, domain, enabled, comment) VALUES {} "  .format(nW[sql_index])
 						cursor.executescript(sql_add) 
-						sql_get_id = cursor.execute("SELECT id FROM domainlist WHERE domain LIKE '{0}'".format(newWhiteList[a-1]))
+						sql_get_id = cursor.execute("SELECT id FROM domainlist WHERE domain LIKE '{0}'".format(newWhiteList[sql_index]))
+						print(sql_get_id)
 						sql_id = sql_get_id.fetchone()[0]
 						print(sql_id)
 						sql_add_category = " INSERT OR IGNORE INTO domainlist_by_group (domainlist_id, group_id) VALUES ({}, {}) " .format(sql_id, cr_category_id); #TODO fix this to add to a certain group
