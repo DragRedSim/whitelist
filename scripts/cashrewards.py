@@ -190,6 +190,7 @@ if db_exists:
 			removeBrace = nW[nwl].replace('(', '') # remove (
 			removeBraces10 = removeBrace.replace(')', '') # remove )
 			newWL = removeBraces10.split(', ') # split at commas to create a list
+			print(newWL)
 			newWhiteList[nwl] = newWL[1].replace('\'', '') # remove ' from domain and add to list
 			# uncomment to see list of sql varables being imported
 			# print (nW[nwl])
