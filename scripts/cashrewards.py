@@ -164,6 +164,7 @@ if db_exists:
 		#
 		cr_category = cursor.execute(" SELECT * FROM group WHERE name LIKE '%Cashrewards%' ")
 		cr_category_id = cr_category.fetchone()["id"]
+		print(cr_category_id)
 		print('[i] Checking Gravity for domains added by script.')
 		# Check Gravity database for domains added by script
 		gravityScript_before = cursor.execute(" SELECT * FROM domainlist WHERE type = 0 AND comment LIKE '%r83m9f%' ")
