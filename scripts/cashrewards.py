@@ -116,7 +116,7 @@ if whitelist_str:
 	for x in map(str.strip, whitelist_str.splitlines()):
 	#at this point, we have a Python list, each item contains one line from the CR file
 		if x and x[0:4] == '@@||': #keep only the lines starting with @, these are the exception lines in ABP format
-		print(x)
+			print(x)
 			starPoint = x.find('*')
 			x = x[4:starPoint] #trim the first four characters and anything after a *
 			#if x[-1] == '^':
