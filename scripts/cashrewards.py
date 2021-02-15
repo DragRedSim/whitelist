@@ -285,7 +285,6 @@ if db_exists:
 		# If there are domains in new list that are NOT in Gravity
 		if ilng == True: # Add domains that are missing from new script and not user additions
 			print ('[i] {} domain(s) NOT in Gravity that are in new script.\n' .format(INnewNOTgravityListCount+1))
-			print(newWhiteList)
 			a = 0
 			while w >= 0:
 				a += 1
