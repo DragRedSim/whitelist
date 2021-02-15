@@ -298,7 +298,7 @@ if db_exists:
 						# ability to add new
 						sql_add = " INSERT OR IGNORE INTO domainlist (type, domain, enabled, comment) VALUES {} "  .format(nW[sql_index])
 						cursor.executescript(sql_add)
-						sql_add_category = " INSERT OR IGNORE INTO domainlist_by_group (domainlist_id, group_id) VALUES {}, {} " .format(sql_index, cr_category_id); TODO fix this to add to a certain group
+						sql_add_category = " INSERT OR IGNORE INTO domainlist_by_group (domainlist_id, group_id) VALUES {}, {} " .format(sql_index, cr_category_id); #TODO fix this to add to a certain group
 						cursor.executescript(sql_add_category)
 						w -= 1
 			# Re-Check Gravity database for domains added by script after we update it
