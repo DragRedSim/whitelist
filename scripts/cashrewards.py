@@ -148,7 +148,6 @@ if os.path.isfile(gravity_db_location) and os.path.getsize(gravity_db_location) 
 		#exit(1)
 		
 	#We don't have the luxury of manually updating an SQL file online, we need to generate the file live.
-	print(whitelist_remote)
 	for x in whitelist_remote:
 		remote_sql_str += "(0, '{0}', 1, '{1}')\n".format(x, 'Cashrewards unblock - r83m9f')
 	remote_sql_str = remote_sql_str[:-1]
@@ -158,7 +157,6 @@ else:
 
 if db_exists:
 	print('[i] Connecting to Gravity.')
-	print(remote_sql_str)
 	try: # Try to create a DB connection
 		sqliteConnection = sqlite3.connect(gravity_db_location)
 		cursor = sqliteConnection.cursor()
@@ -302,6 +300,7 @@ if db_exists:
 						sql_add = " INSERT OR IGNORE INTO domainlist (type, domain, enabled, comment) VALUES {} "  .format(nW[sql_index])
 						cursor.executescript(sql_add)
 						sql_add_category = " INSERT OR IGNORE INTO domainlist_by_group (domainlist_id, group_id) VALUES {}, {} " .format(sql_index, cr_category_id); #TODO fix this to add to a certain group
+						print(sql_add_category)
 						cursor.executescript(sql_add_category)
 						w -= 1
 			# Re-Check Gravity database for domains added by script after we update it
