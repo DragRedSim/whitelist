@@ -120,7 +120,7 @@ if whitelist_str:
 			x = x[4:starPoint] #trim the first four characters and anything after a *
 			if x[-1] == '^':
 				x = x[:-1] #trim a caret from the end of the string if one exists
-			whitelist_remote.update(x)
+			whitelist_remote.add(x)
 		
 else:
 	print('[X] No remote domains were found.')
