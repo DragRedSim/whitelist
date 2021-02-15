@@ -118,7 +118,8 @@ if whitelist_str:
 			if x and x[0:4] == '@@||': #keep only the lines starting with @, these are the exception lines in ABP format
 				starPoint = x.find('*')
 				x = x[4:starPoint] #trim the first four characters and anything after a *
-				if x[-1:] == '^' x = x[:-1] #trim a caret from the end of the string if one exists
+				if x[-1] == '^':
+					x = x[:-1] #trim a caret from the end of the string if one exists
 		whitelist_remote.update(x) 
 	)
 		
