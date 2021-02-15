@@ -188,7 +188,6 @@ if db_exists:
 			removeBrace = nW[nwl].replace('(', '') # remove (
 			removeBraces10 = removeBrace.replace(')', '') # remove )
 			newWL = removeBraces10.split(', ') # split at commas to create a list
-			print(newWL)
 			newWhiteList[nwl] = newWL[1].replace('\'', '') # remove ' from domain and add to list
 			# uncomment to see list of sql varables being imported
 			# print (nW[nwl])
@@ -299,7 +298,7 @@ if db_exists:
 						# ability to add new
 						sql_add = " INSERT OR IGNORE INTO domainlist (type, domain, enabled, comment) VALUES {} "  .format(nW[sql_index])
 						cursor.executescript(sql_add)
-						sql_get_id = "SELECT id FROM domainlist WHERE domain LIKE {0}".format(newWhiteList[a])
+						sql_get_id = "SELECT id FROM domainlist WHERE domain LIKE {0}".format(newWhiteList[a-1])
 						print(sql_get_id)
 						cursor.executescript(sql_get_id)
 						sql_id = cursor.fetchone()
