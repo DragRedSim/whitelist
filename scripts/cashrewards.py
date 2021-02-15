@@ -301,7 +301,7 @@ if db_exists:
 						cursor.executescript(sql_add)
 						sql_get_id = "SELECT id FROM domainlist WHERE domain LIKE '%{0}%'".format(newWhiteList[a])
 						cursor.executescript(sql_get_id)
-						sql_id = cursor.fetchone()[0]
+						sql_id = cursor.fetchone()
 						print(sql_id)
 						sql_add_category = " INSERT OR IGNORE INTO domainlist_by_group (domainlist_id, group_id) VALUES {}, {} " .format(sql_id, cr_category_id); #TODO fix this to add to a certain group
 						print(sql_add_category)
