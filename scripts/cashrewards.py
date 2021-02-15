@@ -299,7 +299,7 @@ if db_exists:
 						# ability to add new
 						sql_add = " INSERT OR IGNORE INTO domainlist (type, domain, enabled, comment) VALUES {} "  .format(nW[sql_index])
 						cursor.executescript(sql_add)
-						sql_get_id = "SELECT id FROM domainlist WHERE domain LIKE '%{0}%'".format(newWhiteList[a])
+						sql_get_id = "SELECT id FROM domainlist WHERE domain LIKE %{0}%".format(newWhiteList[a])
 						cursor.executescript(sql_get_id)
 						sql_id = cursor.fetchone()
 						print(sql_id)
