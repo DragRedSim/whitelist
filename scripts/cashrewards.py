@@ -151,7 +151,7 @@ if os.path.isfile(gravity_db_location) and os.path.getsize(gravity_db_location) 
 	print(whitelist_remote)
 	for x in whitelist_remote:
 		remote_sql_str += "(0, '{0}', 1, '{1}')\n".format(x, 'Cashrewards unblock - r83m9f')
-	whitelist_remote = whitelist_remote[:-1]
+	remote_sql_str = remote_sql_str[:-1]
 	
 else:
 	print('[i] Legacy Pi-hole detected (Version older than 5.0)')
