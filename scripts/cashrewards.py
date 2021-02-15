@@ -163,8 +163,7 @@ if db_exists:
 		print('[i] Successfully Connected to Gravity.')
 		#
 		cr_category = cursor.execute(" SELECT * FROM 'group' WHERE name LIKE '%Cashrewards%' ")
-		print(cr_category.fetchone())
-		cr_category_id = cr_category.fetchone()["id"]
+		cr_category_id = cr_category.fetchone()[0]
 		print(cr_category_id)
 		print('[i] Checking Gravity for domains added by script.')
 		# Check Gravity database for domains added by script
