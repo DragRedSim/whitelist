@@ -116,12 +116,10 @@ if whitelist_str:
 	for x in map(str.strip, whitelist_str.splitlines()):
 	#at this point, we have a Python list, each item contains one line from the CR file
 		if x and x[0:4] == '@@||': #keep only the lines starting with @, these are the exception lines in ABP format
-			print(x)
 			starPoint = x.find('*')
 			x = x[4:starPoint] #trim the first four characters and anything after a *
 			if x[-1] == '^':
 				x = x[:-1] #trim a caret from the end of the string if one exists
-			print(x)
 			whitelist_remote.update(x)
 		
 else:
@@ -150,6 +148,7 @@ if os.path.isfile(gravity_db_location) and os.path.getsize(gravity_db_location) 
 		#exit(1)
 		
 	#We don't have the luxury of manually updating an SQL file online, we need to generate the file live.
+	print(whitelist_remote)
 	for x in whitelist_remote:
 		remote_sql_str += "(0, '{0}', 1, '{1}')\n".format(x, 'Cashrewards unblock - r83m9f')
 		
