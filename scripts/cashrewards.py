@@ -113,15 +113,14 @@ else:
 
 # If domains were fetched, remove any comments and add to set
 if whitelist_str:
-		for x in map(str.strip, whitelist_str.splitlines()):
-		#at this point, we have a Python list, each item contains one line from the CR file
-			if x and x[0:4] == '@@||': #keep only the lines starting with @, these are the exception lines in ABP format
-				starPoint = x.find('*')
-				x = x[4:starPoint] #trim the first four characters and anything after a *
-				if x[-1] == '^':
-					x = x[:-1] #trim a caret from the end of the string if one exists
-		whitelist_remote.update(x) 
-	)
+	for x in map(str.strip, whitelist_str.splitlines()):
+	#at this point, we have a Python list, each item contains one line from the CR file
+		if x and x[0:4] == '@@||': #keep only the lines starting with @, these are the exception lines in ABP format
+			starPoint = x.find('*')
+			x = x[4:starPoint] #trim the first four characters and anything after a *
+			if x[-1] == '^':
+				x = x[:-1] #trim a caret from the end of the string if one exists
+		whitelist_remote.update(x)
 		
 else:
     print('[X] No remote domains were found.')
