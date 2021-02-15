@@ -162,7 +162,7 @@ if db_exists:
 		cursor = sqliteConnection.cursor()
 		print('[i] Successfully Connected to Gravity.')
 		#
-		cr_category = cursor.execute(" SELECT * FROM group WHERE name LIKE '%Cashrewards%' ")
+		cr_category = cursor.execute(" SELECT * FROM 'group' WHERE name LIKE '%Cashrewards%' ")
 		cr_category_id = cr_category.fetchone()["id"]
 		print(cr_category_id)
 		print('[i] Checking Gravity for domains added by script.')
