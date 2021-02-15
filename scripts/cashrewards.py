@@ -157,6 +157,7 @@ else:
 
 if db_exists:
 	print('[i] Connecting to Gravity.')
+	print(remote_sql_str)
 	try: # Try to create a DB connection
 		sqliteConnection = sqlite3.connect(gravity_db_location)
 		cursor = sqliteConnection.cursor()
@@ -164,7 +165,6 @@ if db_exists:
 		#
 		cr_category = cursor.execute(" SELECT * FROM 'group' WHERE name LIKE '%Cashrewards%' ")
 		cr_category_id = cr_category.fetchone()[0]
-		print(cr_category_id)
 		print('[i] Checking Gravity for domains added by script.')
 		# Check Gravity database for domains added by script
 		gravityScript_before = cursor.execute(" SELECT * FROM domainlist WHERE type = 0 AND comment LIKE '%r83m9f%' ")
