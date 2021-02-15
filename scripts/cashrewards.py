@@ -119,6 +119,7 @@ if whitelist_str:
 			print(x)
 			starPoint = x.find('*')
 			x = x[4:starPoint] #trim the first four characters and anything after a *
+			print(x)
 			#if x[-1] == '^':
 				#x = x[:-1] #trim a caret from the end of the string if one exists
 		whitelist_remote.update(x)
